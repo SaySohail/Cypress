@@ -6,7 +6,7 @@ describe("Test contact us page From Automation Test store", ()=> {
     })
     it("Should be able to submit a successful submission via contact us form", ()=>{
         cy.visit("https://automationteststore.com/ ");
-        cy.get('.info_links_footer > :nth-child(5)555 > a').click().then(function(contactusText){
+        cy.get('.info_links_footer > :nth-child(5)> a').click().then(function(contactusText){
             console.log("Selected Item: " + contactusText.text());
 
         });
