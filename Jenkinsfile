@@ -15,14 +15,14 @@ pipeline {
                         ])
                         sh 'npm install'
                         sh 'npm update'
-                        sh 'npm run triggerAllTests-autostore-dashboard'
+                        sh 'npm run ${Script}'
                     }
                 }
                 stage('Test Suite - Run 2') {
                     steps {
                         sh 'npm install'
                         sh 'npm update'
-                        sh 'npm run triggerAllTests-headed'
+                        sh 'npm run  ${Script}'
                     }
                 }
             }
