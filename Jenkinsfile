@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
 
     tools {nodejs "node.20.10"}
@@ -6,10 +6,7 @@ pipeline{
     stages {
         stage('Cypress parallel test suite') {
             parallel {
-                stage('slave Node 1') {
-                    agent {
-                        label "remote_node1"
-                    }
+                stage('Test Suite - Run 1') {
                     steps {
                         git url: 'https://github.com/SaySohail/Cypress.git'
                         sh 'npm install'
@@ -17,15 +14,12 @@ pipeline{
                         sh 'npm run ${triggerAllTests-autostore-dashboard}'
                     }
                 }
-                 stage('slave Node 2') {
-                    agent {
-                        label "remote_node2"
-                    }
+                stage('Test Suite - Run 2') {
                     steps {
                         git url: 'https://github.com/SaySohail/Cypress.git'
                         sh 'npm install'
                         sh 'npm update'
-                        sh 'npm run ${triggerAllTests-autostore-dashboard}'
+                        sh 'npm run ${triggerAllTests-dashboard}'
                     }
                 }
             }
