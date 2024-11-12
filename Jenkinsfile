@@ -20,11 +20,6 @@ pipeline {
                 }
                 stage('Test Suite - Run 2') {
                     steps {
-                        checkout([
-                            $class: 'GitSCM', 
-                            branches: [[name: 'main']],  // Adjust the branch if needed
-                            userRemoteConfigs: [[url: 'https://github.com/SaySohail/Cypress.git']]
-                        ])
                         sh 'npm install'
                         sh 'npm update'
                         sh 'npm run triggerAllTests-headed'
